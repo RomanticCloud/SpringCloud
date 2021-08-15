@@ -1,0 +1,19 @@
+server:
+  port: 9020
+
+
+spring:
+  application:
+    name: springcloud-zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001:7001/eureka/,http://eureka7002:7002/eureka/
+
+zuul:
+  routes:
+    user-service:
+      serviceId: springcloud-provider
+      path: /springcloud-provider/**
+      url: http://localhost:8001
